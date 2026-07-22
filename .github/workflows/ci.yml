@@ -1,0 +1,25 @@
+name: CI                    # 工作流名称，显示在 GitHub Actions 页面
+
+on:                         # 触发条件
+  push:                     # push 代码时触发
+    branches: [main]        # 只在 main 分支 push 时触发
+  pull_request:             # 创建 PR 时也触发
+
+jobs:                       # 任务列表
+  test:                     # 任务名：跑测试
+    runs-on: ubuntu-latest  # 运行环境：GitHub 提供的 Ubuntu 服务器
+
+    steps:                  # 步骤，按顺序执行
+      # 步骤1：拉取代码
+      - name: Checkout code
+        uses: actions/checkout@v4     # 使用官方 Action 拉代码
+
+      # 步骤2：安装 Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'      # 指定 Python 版本
+
+      # 步骤3：运行测试
+      - name: Run tests
+        run: python test_permutation_rank.py   # 执行测试脚本

@@ -4,6 +4,7 @@ on:                         # 触发条件
   push:                     # push 代码时触发
     branches: [main]        # 只在 main 分支 push 时触发
   pull_request:             # 创建 PR 时也触发
+  workflow_dispatch:
 
 jobs:                       # 任务列表
   test:                     # 任务名：跑测试

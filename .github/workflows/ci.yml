@@ -25,8 +25,8 @@ jobs:                       # 任务列表
           pip install ruff
           ruff check .
       #新增：安全扫描
-      - name:Security scan with Bandit
-        run : |
+      - name: Security scan with Bandit
+        run: |
           pip install bandit
           bandit -r . -f screen
 

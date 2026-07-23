@@ -19,7 +19,11 @@ jobs:                       # 任务列表
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'      # 指定 Python 版本
-
+      #新增：Lint检查
+      - name: Lint with Ruff
+        run : |
+          pip install ruff
+          ruff check .
       # 步骤3：运行测试
       - name: Run tests
         run: python test_permutation_rank.py   # 执行测试脚本

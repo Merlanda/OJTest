@@ -24,6 +24,12 @@ jobs:                       # 任务列表
         run : |
           pip install ruff
           ruff check .
+      #新增：安全扫描
+      - name:Security scan with Bandit
+        run : |
+          pip install bandit
+          bandit -r . -f screen
+
       # 步骤3：运行测试
       - name: Run tests
         run: python test_permutation_rank.py   # 执行测试脚本

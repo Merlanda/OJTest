@@ -2,14 +2,14 @@
 简单测试脚本：验证 permutation_rank.py 的正确性
 用法: python test_permutation_rank.py
 """
-import subprocess
+import subprocess  # nosec B404
 import sys
 
 
 def run_case(n, perm, expected):
     """运行程序并比对输出"""
     input_data = f"{n}\n{' '.join(map(str, perm))}\n"
-    result = subprocess.run(
+    result = subprocess.run( # nosec B603
         [sys.executable, "permutation_rank.py"],
         input=input_data,
         capture_output=True,
